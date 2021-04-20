@@ -37,7 +37,6 @@ function App() {
           {/* history (navigating), match (access params), location (url info) */}
           <PrivateRoute exact path="/friends" component={Friends} />
           <PrivateRoute path="/friends/add" component={AddFriend} />
-          {/* <PrivateRoute path="/anakin" component={NewRoute} /> */}
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>

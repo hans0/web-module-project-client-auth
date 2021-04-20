@@ -1,11 +1,23 @@
 import React from 'react';
+// import { useHistory } from "react-router-dom";
+import {withRouter} from 'react-router-dom';
+
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 class AddFriend extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  
   state = {
     name: '',
     email: '',
     age: ''
+  }
+  
+  // history = useHistory();
+  componentDidMount() {
+    console.log(this.props)
   }
 
   handleChange = e => {
@@ -27,12 +39,11 @@ class AddFriend extends React.Component {
       })
       .then((res) => {
         console.log(res);
-       
+        this.props.history.push('/friends');
       })
       .catch((err) => {
         console.log(err);
       });
-    this.props.history.push('/friends');
   }
 
   render() {
@@ -73,4 +84,4 @@ class AddFriend extends React.Component {
   }
 }
 
-export default AddFriend;
+export default withRouter(AddFriend);
